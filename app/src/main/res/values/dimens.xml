@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_margin">16dp</dimen>
+    <dimen name="txt_size">18sp</dimen>
+    <dimen name="view_padding_small">8dp</dimen>
+    <dimen name="crd_radius">8dp</dimen>
+    <dimen name="crd_elevation">8dp</dimen>
+    <dimen name="img_size">300dp</dimen>
+</resources>

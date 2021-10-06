@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pagination Demo</string>
+    <string name="retry">Retry</string>
+    <string name="please_try_again">Please Try Again</string>
+</resources>
