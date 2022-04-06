@@ -10,8 +10,6 @@ import com.example.paginationdemo.adapters.LoadingStateAdapter
 import com.example.paginationdemo.databinding.ActivityMainBinding
 import com.example.paginationdemo.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
