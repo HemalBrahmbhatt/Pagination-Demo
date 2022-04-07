@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val dogPageSource: DogPageSource) : ViewModel() {
-    val data = Pager(PagingConfig(pageSize = 10, enablePlaceholders = false)) {
+    val data = Pager(PagingConfig(pageSize = 5, enablePlaceholders = false)) {
         dogPageSource
     }.flow.cachedIn(viewModelScope)
 }

@@ -17,14 +17,14 @@ class LoadingStateAdapter constructor(private val retry: ()->Unit)
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadingViewHolder {
         val binding = ErrorItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LoadingViewHolder(binding, retry)
+        return LoadingViewHolder(binding)
     }
 
-    class LoadingViewHolder(private val binding: ErrorItemBinding, retry: () -> Unit):RecyclerView.ViewHolder(binding.root){
+    inner class LoadingViewHolder(private val binding: ErrorItemBinding):RecyclerView.ViewHolder(binding.root){
 
         init {
             binding.btnRetry.setOnClickListener {
-                retry()
+                retry.invoke()
             }
         }
 
