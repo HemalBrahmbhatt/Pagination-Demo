@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
                 dogPagerAdapter.submitData(it)
             }
         }
+
+        binding.swipeRefresh.setOnRefreshListener {
+            dogPagerAdapter.refresh()
+            binding.swipeRefresh.isRefreshing = false
+        }
     }
 
     override fun onDestroy() {

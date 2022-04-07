@@ -5,12 +5,14 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.paginationdemo.model.Dog
 import com.example.paginationdemo.network.ApiDogService
-import javax.inject.Inject
 
-class DogPageSource @Inject constructor(private val apiDogService: ApiDogService) :
+class DogPageSource(private val apiDogService: ApiDogService) :
     PagingSource<Int, Dog>() {
     override fun getRefreshKey(state: PagingState<Int, Dog>): Int? {
-        return null
+        return state.anchorPosition?.let { anchorPosition ->
+            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
+                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+        }
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Dog> {
