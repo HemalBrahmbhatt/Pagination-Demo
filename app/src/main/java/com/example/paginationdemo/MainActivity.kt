@@ -1,9 +1,9 @@
 package com.example.paginationdemo
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.example.paginationdemo.adapters.DogPagerAdapter
 import com.example.paginationdemo.adapters.LoadingStateAdapter
@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             mainViewModel.data.collectLatest {
-                binding.progressBar.isVisible = false
-                dogPagerAdapter.submitData(it)
+                binding.progressBar.visibility = View.GONE
+                dogPagerAdapter.submitData(lifecycle,it)
             }
         }
     }

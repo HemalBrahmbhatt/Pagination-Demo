@@ -2,10 +2,12 @@ package com.example.paginationdemo.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat.getDrawable
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.paginationdemo.R
 import com.example.paginationdemo.databinding.DogItemBinding
 import com.example.paginationdemo.model.Dog
 
@@ -29,6 +31,20 @@ class DogPagerAdapter : PagingDataAdapter<Dog, DogPagerAdapter.DogViewHolder>(Do
             binding.apply {
                 Glide.with(itemView)
                     .load(dog.url)
+                    .placeholder(
+                        getDrawable(
+                            itemView.context.resources,
+                            R.drawable.ic_image,
+                            itemView.context.theme
+                        )
+                    )
+                    .error(
+                        getDrawable(
+                            itemView.context.resources,
+                            R.drawable.ic_cancel,
+                            itemView.context.theme
+                        )
+                    )
                     .into(imgItem)
                 txtItemId.text = dog.id
             }
