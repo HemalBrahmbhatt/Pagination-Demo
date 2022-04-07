@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             mainViewModel.data.collectLatest {
-                dogPagerAdapter.submitData(lifecycle,it)
+                dogPagerAdapter.submitData(it)
             }
         }
     }
